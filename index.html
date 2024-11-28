@@ -1,0 +1,80 @@
+<!DOCTYPE html>'
+<html>
+    <head>
+        <title>index</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Password page</h1><hr>
+        <!--create a form container-->
+        <div class="d-flex justify-content-center ">
+            <form method="POST" id="passwordform" class="shadow p-4 border rounded">
+                <label for="usernameinput">User Name</label>
+                <input class="form-control" type="text" name="usernameinput" id="userinput">
+                <label for="userpasswordinput">User Password</label>
+                <input class="form-control" type="password" name="userpasswordinput" id="userpassword">
+                <button type="submit" class="btn btn-primary mt-4" id="formsubmitbutton">Submit</button>
+
+            </form>
+        </div> <!--end of form-->
+        
+        <script>
+            //it is my script
+            console.log("it is working");
+            //let us create a credential for admin 
+            let adminObject={
+                adminName:"admin",
+                adminPassword:"1234"
+            }
+
+           
+
+            //let us add an event listener to our button
+            document.getElementById("formsubmitbutton").addEventListener("click",(e)=>{
+                e.preventDefault();
+                //test line
+                console.log("you pressed submit button");
+                //get user name
+                let userName=document.getElementById("userinput").value;                
+                console.log(userName);
+
+                //get user password
+                let userPassword=document.getElementById("userpassword").value;
+                console.log(userPassword);
+
+                let userObject={
+                    userName:userName,
+                    userPassword:userPassword
+                };
+
+                //test to see if i created correctly
+                console.log(userObject.userName,userObject.userPassword);
+
+                //get admin credetendials 
+                console.log(adminObject.adminName,adminObject.adminPassword);
+
+                //Create an if
+                if(userObject.userName ==adminObject.adminName && userObject.userPassword==adminObject.adminPassword){
+                    window.location = "adminpage.html";
+                    console.log("Hei og hå");
+                } else {
+                    alert("Wrong username and/or password")
+                }
+
+                
+
+                //clear the fields;
+                document.getElementById("userinput").value="";
+                document.getElementById("userpassword").value="";
+
+                // 
+
+
+
+
+            })
+        </script>
+        
+    </body>
+</html>
